@@ -15,10 +15,10 @@ Coded by www.creative-tim.com
 
 // react-router-dom components
 import { Link } from "react-router-dom";
-
+import {useState} from 'react';
 // @mui material components
 import Card from "@mui/material/Card";
-
+import axios from 'axios';
 import Checkbox from "@mui/material/Checkbox";
 
 // Material Dashboard 2 React components
@@ -37,6 +37,23 @@ function Show() {
   alert("i.am.a.IIIT.B.Student");
 }
 function Cover() {
+
+  const[username,setUsername] = useState('');
+  const[password,setPassword] = useState('');
+  const[mobile,setMobile] = useState('');
+
+  const signUp=()=>{
+    console.log('CAlled axios')
+    axios({
+      method:'post',
+      url:'http://localhost:8080/users/signup',
+      data:{
+        'username':username,
+        'password':password,
+        'mobile': mobile
+      }
+    })
+  }
   return (
     <CoverLayout image={bgImage}>
       <Card>
@@ -61,16 +78,13 @@ function Cover() {
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
             <MDBox mb={2}>
-              <MDInput type="text" label="Name" variant="standard" fullWidth />
+              <MDInput type="email" label="Username" value={username} onChange={(e)=>{setUsername(e.target.value)}} variant="standard" fullWidth />
             </MDBox>
             <MDBox mb={2}>
-              <MDInput type="email" label="Email" variant="standard" fullWidth />
+              <MDInput type="password" value={password}  onChange={(e)=>{setPassword(e.target.value)}} label="Password" variant="standard" fullWidth />
             </MDBox>
             <MDBox mb={2}>
-              <MDInput type="password" label="Password" variant="standard" fullWidth />
-            </MDBox>
-            <MDBox mb={2}>
-              <MDInput type="Digit" label="Mobile Number" variant="standard" fullWidth />
+              <MDInput type="Digit" value={mobile}  onChange={(e)=>{setMobile(e.target.value)}} label="Mobile Number" variant="standard" fullWidth />
             </MDBox>
             <MDBox display="flex" alignItems="center" ml={-1}>
               <Checkbox />
@@ -94,8 +108,8 @@ function Cover() {
               </MDTypography>
             </MDBox>
             <MDBox mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth>
-                sign in
+              <MDButton onClick={()=>{signUp()}} variant="gradient" color="info" fullWidth>
+                sign up
               </MDButton>
             </MDBox>
             <MDBox mt={3} mb={1} textAlign="center">
