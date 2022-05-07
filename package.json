@@ -3,14 +3,14 @@
   "version": "2.1.0",
   "private": true,
   "author": "Shivang and Ishan",
-  "license": "See license in https://www.creative-tim.com/license",
+  "license": "Shivang and Ishan",
   "description": "React version of Material Dashboard 2 by Creative Tim",
   "bugs": {
-    "url": "https://github.com/creativetimofficial/material-dashboard-react/issues"
+    "url": "https://github.com/Shivang2626/Academic-Newsletter-LMS.git"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/creativetimofficial/material-dashboard-react.git"
+    "url": "git+https://github.com/Shivang2626/Academic-Newsletter-LMS.git"
   },
   "engines": {
     "node": "14 || 15 || 16",
